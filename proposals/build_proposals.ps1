@@ -1,3 +1,3 @@
 ﻿$ErrorActionPreference = 'Stop'
 # One maintained deck source; it also updates the canonical proposal paths.
-& (Join-Path $PSScriptRoot 'v2\build_six_slides.ps1')
+& (Join-Path $PSScriptRoot 'v3\build_slides.ps1')

@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
-$sourceRoot = Join-Path $PSScriptRoot 'v2'
-$sourceStem = 'low_overlap_registration_6slides'
+$sourceRoot = Join-Path $PSScriptRoot 'v3'
+$sourceStem = 'low_overlap_registration_proposal'
 $targetStem = 'low_overlap_registration_proposal'
 
 foreach ($extension in @('pptx','pdf')) {

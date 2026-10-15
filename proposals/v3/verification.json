@@ -1,0 +1,67 @@
+{
+  "slides": [
+    {
+      "page": 1,
+      "key_points": 3,
+      "visible_characters": 80
+    },
+    {
+      "page": 2,
+      "key_points": 3,
+      "visible_characters": 99
+    },
+    {
+      "page": 3,
+      "key_points": 3,
+      "visible_characters": 90
+    },
+    {
+      "page": 4,
+      "key_points": 3,
+      "visible_characters": 77
+    },
+    {
+      "page": 5,
+      "key_points": 2,
+      "visible_characters": 69
+    },
+    {
+      "page": 6,
+      "key_points": 3,
+      "visible_characters": 82
+    },
+    {
+      "page": 7,
+      "key_points": 3,
+      "visible_characters": 102
+    },
+    {
+      "page": 8,
+      "key_points": 3,
+      "visible_characters": 121
+    },
+    {
+      "page": 9,
+      "key_points": 1,
+      "visible_characters": 143
+    },
+    {
+      "page": 10,
+      "key_points": 3,
+      "visible_characters": 83
+    },
+    {
+      "page": 11,
+      "key_points": 3,
+      "visible_characters": 94
+    },
+    {
+      "page": 12,
+      "key_points": 3,
+      "visible_characters": 70
+    }
+  ],
+  "pdf_pages": 12,
+  "example_images_match_actual_data": true,
+  "published_files_match_source": true
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "page": 1,
+    "title": "先看一个真实问题：两块扫描如何放回一起",
+    "notes": "先看 RedKitchen 的真实扫描。左边 P 是 fragment 12，中间 Q 是 fragment 0，它们来自同一个厨房，但分别用自己的坐标系记录。机器人从两个位置看到了一部分相同的墙面、柜体和桌面，我们希望仅凭这些几何信息，把 P 转到 Q 的坐标系。右边用数据集 GT 展示正确对齐后的样子，帮助大家理解我们究竟要预测什么；这张图还不是我们的方法结果。\n技术备注：本例属于固定 3DMatch 测试列表。GeoTransformer metadata 的 overlap 为 61.35%，PREDATOR 对同一对数据记录为 45.22%；两者的 pair 身份和 GT 一致，数值差异原因尚未完整复现。本套 slides 统一引用 GeoTransformer 的字段，不把它称为遮挡率。",
+    "sources": [
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DMatch.pkl",
+      "https://github.com/prs-eth/OverlapPredator/blob/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/3DMatch.pkl",
+      "https://share.phys.ethz.ch/~gseg/Predator/data.zip"
+    ]
+  },
+  {
+    "page": 2,
+    "title": "输入：两块尚未对齐的局部点云",
+    "notes": "把图片写成数学对象，我们的输入就是 P∈R^{N×3} 和 Q∈R^{M×3}：每一行是一个表面点的三维坐标，单位是米，两个点云的点数可以不同。我们假设它们来自同一静态场景，尺度已经一致，并且确实观察到一部分共同表面；未知的是相对位姿，以及哪些点代表同一处表面。这一版任务只使用 xyz，不需要 RGB，也不把相机轨迹或真实对应关系交给算法。\n技术备注：这是已给定有重叠点云对的刚性配准，不同时研究跨场景检索、无重叠拒识、尺度估计或动态物体形变。输入点没有逐行对应关系。",
+    "sources": [
+      "https://arxiv.org/pdf/1603.08182",
+      "https://github.com/qinzheng93/GeoTransformer"
+    ]
+  },
+  {
+    "page": 3,
+    "title": "输出：作用于整个点云的一个旋转和平移",
+    "notes": "算法最终输出一个旋转矩阵 R 和一个平移向量 t。对 P 中任意点 p，都使用同一个公式 p′=Rp+t，把整个点云放进 Q 的坐标系。想象把一块刚性的扫描整体拿起来转动、平移，它内部的距离保持不变。共同观测到的表面应该对齐，而只在 P 中出现的区域仍然可以留在 Q 外面；我们并不要求把每一个点都硬配到 Q 上。\n技术备注：R∈SO(3)，t∈R³；齐次矩阵 T 为 4×4，方向统一为 P→Q。NumPy 行向量写法是 P @ R.T + t。GT 只用于监督或评价，不作为推理输入。",
+    "sources": [
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/evaluation/geometric-registration/getGtInfoLog.m#L40-L46"
+    ]
+  },
+  {
+    "page": 4,
+    "title": "再看低重叠：只有较小的共同表面",
+    "notes": "现在保持 Q 为同一个 fragment 0，把 P 换成 fragment 30。这一对来自 3DLoMatch，GeoTransformer metadata 的重叠值约为 20%。右图先按 GT 对齐，再用绿色提示相互靠近的表面。可以看到，两个点云虽然属于同一厨房，却只有较小一部分能相互提供匹配证据；更多的表面仅出现在其中一个扫描里。这说明低重叠配准为什么比上一例更容易产生错误对应。\n技术备注：GeoTransformer 字段为 19.93%，PREDATOR 字段为 20.22%，差异原因尚未完整复现。绿色使用 GT 对齐后的 5 cm 近邻规则，仅为几何展示，既不是官方 overlap 的复算，也不是模型输入或预测。两例用于直观比较，并非只改变 overlap 的单变量实验。",
+    "sources": [
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DLoMatch.pkl",
+      "https://github.com/prs-eth/OverlapPredator/blob/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/3DLoMatch.pkl"
+    ]
+  },
+  {
+    "page": 5,
+    "title": "难点：没有对应的点，与看起来相似的错误对应",
+    "notes": "困难主要有两层。第一，非重叠部分本来就没有真实对应，特征匹配却仍可能给它找出一个看似相近的点。第二，室内有许多相似的平面、边缘和柜门，局部形状相似不代表它们是同一处位置。低重叠时，支持正确位姿的匹配更少，错误对应更容易影响估计。因此我们关注一个具体问题：在已有候选对应中，能否利用刚性几何关系，选出更可靠的一组？\n技术备注：几何一致性是筛选证据，不保证单独消除全部歧义；重复结构也可能构成相互一致的错误对应。我们将通过固定测试协议衡量收益。",
+    "sources": [
+      "https://arxiv.org/pdf/1603.08182",
+      "https://arxiv.org/abs/2011.13005"
+    ]
+  },
+  {
+    "page": 6,
+    "title": "数据怎么来：50 帧深度融合成一个 fragment",
+    "notes": "这些点云来自真实室内 RGB-D 扫描。原始序列有颜色图、深度图、相机内参，以及重建得到的参考相机轨迹。官方程序利用参考轨迹，把连续 50 帧深度融合到同一个 TSDF 体素网格，再提取局部表面点云，形成一个 fragment。它的坐标系取这段序列第一帧的相机坐标系。因此输入不是单张深度图，也不是完整房间模型，而是一小段扫描实际看到的表面。\n技术备注：公开 fragment 代码使用 6 mm 体素与 30 mm TSDF 截断距离，输出 PLY 只有 xyz。50 帧描述本项目使用的场景配准 fragment，不应混同原论文的单帧局部 patch 匹配任务。融合和轨迹均可能含误差。",
+    "sources": [
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/depth-fusion/fuseSceneFragments.m",
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/depth-fusion/demo.cu",
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/depth-fusion/utils.hpp"
+    ]
+  },
+  {
+    "page": 7,
+    "title": "一个样本具体包含什么",
+    "notes": "回到第一组真实数据，一个样本就可以具体写成三项：P 是 fragment 12 的 16341×3 坐标数组，Q 是 fragment 0 的 18977×3 坐标数组，标签是一个把 P 转到 Q 的 4×4 矩阵 T*。场景名、fragment 编号和 overlap 字段用于追溯与分析，不等于模型必须使用的输入。测试时我们交给算法的是 P 和 Q，拿到预测变换后，再与封存的 T* 按统一规则比较。\n技术备注：点数来自实际提取的 PREDATOR 预处理文件，其他预处理或下采样可改变点数。本地 npy 不含颜色、类别或逐点 GT 对应，T* 在两套作者 metadata 中完全一致。",
+    "sources": [
+      "https://share.phys.ethz.ch/~gseg/Predator/data.zip",
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DMatch.pkl"
+    ]
+  },
+  {
+    "page": 8,
+    "title": "测试设置：同一批场景，两份配对列表",
+    "notes": "3DMatch 和 3DLoMatch 使用同一批八个真实室内测试场景，主要区别是选取的配对难度。当前固定的作者 metadata 中，3DMatch 有 1623 对，标称关注重叠超过 30% 的情况；3DLoMatch 有 1781 对，标称关注 10% 到 30% 的低重叠情况。我们的主目标是改善后一组，并在前一组检查性能是否下降。实验将沿用固定列表，不根据我们自己重算的数字临时更换样本。\n技术备注：本地 registration_audit.json 核实这两份列表共享 100 个完全相同的有向 pair，不能称为互不相交。当前 overlap 字段存在越过标称区间的记录，且两作者仓库字段值有差异；标称协议与当前字段逐项取值应区分。固定版本为 GeoTransformer e7a135af4c318ff3b8d7f6c963df094d7e4ea540。",
+    "sources": [
+      "https://arxiv.org/abs/2011.13005",
+      "https://github.com/qinzheng93/GeoTransformer/tree/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata"
+    ]
+  },
+  {
+    "page": 9,
+    "title": "数据分布：不同场景的配对数量并不均衡",
+    "notes": "图里每组柱子对应一个测试场景，可以看到场景间的配对数量相差很大。例如 RedKitchen 两份列表分别有 506 对和 525 对，而 Maryland Hotel 3 只有 54 对和 49 对。若把所有成功样本直接相加，大场景会获得更高权重。因此我们既查看每个场景的表现，也按官方方式对八个场景等权平均，让结论不会只由某个样本多的场景决定。\n技术备注：柱图表示加载列表数量，不是 RR 有效分母。八场景依序为 RedKitchen、Home AT、Home MD、Hotel UC、Hotel UMD 1、Hotel UMD 3、Studyroom、Lab，Match 数量为 506/156/208/226/104/54/292/77，Lo 为 525/289/230/218/158/49/240/72。本地旧 audit 还发现当前 train/val 在 analysis-by-synthesis-apt2-kitchen 共享 75 个 pair、19 个 fragment；训练与验证的 scene/sequence 命名粒度也不能直接等同论文 46/8/8。该发现不等于已证明历史论文实验泄漏；本项目调参或训练前必须固定互斥的场景划分，测试场景不用于调参。",
+    "sources": [
+      "https://github.com/qinzheng93/GeoTransformer/tree/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata",
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L245-L306"
+    ]
+  },
+  {
+    "page": 10,
+    "title": "GT 从哪里来：先到世界，再到参考点云",
+    "notes": "数据集构建者拥有参考轨迹，因此知道 P、Q 各自怎样变换到同一个世界坐标系。要把 P 转到 Q，只需先从 P 到世界，再从世界到 Q：T* = inv(T_WQ) T_WP。每块 fragment 的世界位姿来自它所用第一帧的已有相机位姿，官方程序将二者组合成 pair 的 GT。算法测试时看不到这些轨迹，只能从两个局部点云恢复相对变换。\n技术备注：T_WP、T_WQ 分别表示 P→W、Q→W，公式按列向量约定。GT 来源于已有 RGB-D 重建与位姿，不是逐点人工标注，也不能说是无误差的外部测量。GT 对齐后仍可能存在传感器噪声、融合误差及局部残差。",
+    "sources": [
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/depth-fusion/fuseSceneFragments.m#L63-L67",
+      "https://github.com/andyzeng/3dmatch-toolbox/blob/master/evaluation/geometric-registration/getGtInfoLog.m#L40-L46",
+      "https://arxiv.org/pdf/1603.08182"
+    ]
+  },
+  {
+    "page": 11,
+    "title": "如何判定成功：Registration Recall",
+    "notes": "我们使用 Registration Recall，简称 RR，回答有多少点云对被成功配准。对每个纳入评测的 pair，把预测变换代入官方误差计算，误差小于 0.2 米就记为成功；先算各场景的成功比例，再对八个场景等权平均。这里评价的是变换是否正确，不能直接拿两块点云之间的最近邻距离代替，因为大量非重叠表面本来就找不到对应。\n技术备注：固定 GeoTransformer 标准 eval.py 的严格小于判定。其误差用 GT 信息矩阵及相对位姿的平移、四元数向量分量构成归一化二次型，近似 GT 对应重对齐 RMSE²，并非平移误差或 Chamfer。官方排除 fragment 编号相邻的 pair，谓词为 id1 > id0 + 1；本地 rr_protocol_audit.json 按固定 metadata 核验后，Match/Lo 有效 RR 分母分别为 1279/1726，而加载列表为 1623/1781。应完整提交各 pair 预测并复用同一评测器，不能自行混用分母。",
+    "sources": [
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/geotransformer/datasets/registration/threedmatch/utils.py#L108-L126",
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L173-L185",
+      "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L245-L306"
+    ]
+  },
+  {
+    "page": 12,
+    "title": "实验：固定特征，只改变候选对应的筛选",
+    "notes": "实验先固定一个已有的预训练特征提取器，由同一套特征匹配得到候选对应池。基线按原有匹配分数选出 K 个对应；我们的版本加入几何一致性筛选，也保留 K 个，再交给同样的 RANSAC 求 R、t。主要比较 3DLoMatch 的 RR，同时报告 3DMatch、各场景结果和运行时间。这样我们能回答一个边界清楚的问题：改变对应筛选，是否让低重叠配准更可靠？\n技术备注：保持输入预处理、特征权重、候选池、保留数量 K、RANSAC 阈值和求解预算一致；候选不足时两分支使用相同上限。配对随机种子并报告重复运行波动，新增筛选时间计入总耗时。阈值只在固定且与测试互斥的验证场景选择；GT 和展示用绿色区域不参与筛选。几何一致性是已有思路，本开题不声称其本身新颖。",
+    "sources": [
+      "https://arxiv.org/pdf/1603.08182",
+      "https://github.com/qinzheng93/GeoTransformer"
+    ]
+  }
+]
