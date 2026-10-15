@@ -1,0 +1,93 @@
+{
+  "id": "high_3dmatch",
+  "benchmark": "3DMatch",
+  "scene": "7-scenes-redkitchen",
+  "reference_fragment": 0,
+  "source_fragment": 12,
+  "point_counts": {
+    "source": 16341,
+    "reference": 18977
+  },
+  "overlap": 0.6135477441390187,
+  "overlap_definition_label": "GeoTransformer author metadata overlap field; not a separately recomputed occlusion fraction",
+  "predator_metadata_overlap": 0.4522490812153838,
+  "metadata_overlap_note": "The original PREDATOR and GeoTransformer files agree exactly on pair identity and R/t, but their overlap fields use different values. Slides comparing the examples must use one stated source consistently.",
+  "metadata_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DMatch.pkl",
+  "metadata_sha256": "390a959da36cd10abb924da366fb1a324e031913efec76a1ed4185bcfd3d7353",
+  "predator_metadata_source": "https://raw.githubusercontent.com/prs-eth/OverlapPredator/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/3DMatch.pkl",
+  "predator_metadata_sha256": "f8cde328ab4efa06a9192f03e37c10201df05835720ff4e187f6d4204637de1c",
+  "benchmark_identity_verified": true,
+  "also_in_other_benchmark_pair_list": false,
+  "point_cloud_sources": {
+    "archive_url": "https://share.phys.ethz.ch/~gseg/Predator/data.zip",
+    "reference_member": "data/indoor/test/7-scenes-redkitchen/cloud_bin_0.pth",
+    "source_member": "data/indoor/test/7-scenes-redkitchen/cloud_bin_12.pth",
+    "member_extraction": "HTTP Range; exact ZIP member CRC32 and uncompressed length verified"
+  },
+  "ground_truth": {
+    "direction": "source -> reference",
+    "formula": "x_ref = R @ x_src + t",
+    "numpy_formula": "aligned_src = src @ gt[:3,:3].T + gt[:3,3]",
+    "units": "meters",
+    "matrix": [
+      [
+        0.9832326564796294,
+        -0.16557880013693857,
+        -0.0741813577218814,
+        0.18483517201439603
+      ],
+      [
+        0.1630731108344661,
+        0.9856973017254755,
+        -0.038618502025200264,
+        -0.33143381900850394
+      ],
+      [
+        0.07951016132532938,
+        0.025876745668069516,
+        0.9963067080863061,
+        0.6622964422836722
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "exact_match_between_author_metadata": true
+  },
+  "files": {
+    "src": {
+      "file": "high_3dmatch\\src.npy",
+      "bytes": 392312,
+      "sha256": "5790c7415176470dbe97d8900d334e212a8641bb9b7f99b9c13c15384026161e",
+      "shape": [
+        16341,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "ref": {
+      "file": "high_3dmatch\\ref.npy",
+      "bytes": 455576,
+      "sha256": "030c5e827916c99684ae4a50435581bbf6caeb80f918de705a738beb007d827d",
+      "shape": [
+        18977,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "gt": {
+      "file": "high_3dmatch\\gt.npy",
+      "bytes": 256,
+      "sha256": "6779cfad43758ca047131a677ce63b581bb67ca353bd51546c92297a6b355e8a",
+      "shape": [
+        4,
+        4
+      ],
+      "dtype": "float64"
+    }
+  },
+  "caption": "RedKitchen: source fragment 12 to reference fragment 0; 3DMatch; author metadata overlap 61.4%. GT-aligned visualization is label illustration, not model output."
+}

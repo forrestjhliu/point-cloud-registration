@@ -1,0 +1,1483 @@
+{
+  "audited_at_utc": "2026-10-15T17:02:31.281214+00:00",
+  "scope": "Small metadata only. No point clouds, RGB-D frames, weights, or large dataset archives were downloaded; no registration model was run.",
+  "metadata_total_bytes": 9878860,
+  "downloads": [
+    {
+      "file": "3DLoMatch.pkl",
+      "bytes": 611561,
+      "sha256": "10dde0aa4198b9ee636c13ef0b94a6849af73d3f1b576dd28d43934721857550",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DLoMatch.pkl"
+    },
+    {
+      "file": "3DMatch.pkl",
+      "bytes": 555062,
+      "sha256": "390a959da36cd10abb924da366fb1a324e031913efec76a1ed4185bcfd3d7353",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DMatch.pkl"
+    },
+    {
+      "file": "predator_3DLoMatch.pkl",
+      "bytes": 605652,
+      "sha256": "7a48383360357944fe6b6ad1f69f00152bdf528ff1148407d0d533e3593ed87c",
+      "pinned_source": "https://raw.githubusercontent.com/prs-eth/OverlapPredator/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/3DLoMatch.pkl"
+    },
+    {
+      "file": "predator_3DMatch.pkl",
+      "bytes": 595878,
+      "sha256": "f8cde328ab4efa06a9192f03e37c10201df05835720ff4e187f6d4204637de1c",
+      "pinned_source": "https://raw.githubusercontent.com/prs-eth/OverlapPredator/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/3DMatch.pkl"
+    },
+    {
+      "file": "predator_val_info.pkl",
+      "bytes": 279968,
+      "sha256": "c8079be51517d7eb01575394946f7eb606115c261f92cf30bfbfc144b6b31754",
+      "pinned_source": "https://raw.githubusercontent.com/prs-eth/OverlapPredator/8c78f125fc58d62ad7d149adf1fed43ed54937e4/configs/indoor/val_info.pkl"
+    },
+    {
+      "file": "train.pkl",
+      "bytes": 6806188,
+      "sha256": "820f2115eb6521639e1739a521a964ca3ea32604b12bdc725b454895a0460731",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/train.pkl"
+    },
+    {
+      "file": "train_3dmatch.txt",
+      "bytes": 2071,
+      "sha256": "1504326c73b2e5c528c7fe0a2f1ab7faf7cddcc4c8d1ae8357b93579a0118bcf",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/split/train_3dmatch.txt"
+    },
+    {
+      "file": "val.pkl",
+      "bytes": 422282,
+      "sha256": "af42f9721b91e1fbee0c01609320cdc94594fa6f8909fcd436ed48efb3060406",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/val.pkl"
+    },
+    {
+      "file": "val_3dmatch.txt",
+      "bytes": 198,
+      "sha256": "bbfc25fc316cdf7e437efa272921a48ba727500a72c8d89267d371ed9828a0d0",
+      "pinned_source": "https://raw.githubusercontent.com/qinzheng93/GeoTransformer/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/split/val_3dmatch.txt"
+    }
+  ],
+  "official_protocol": {
+    "3dmatch_original": "62 real indoor RGB-D scenes; original paper splits 54 training / 8 testing. Each benchmark fragment fuses 50 depth frames using TSDF.",
+    "geotransformer_paper": "Paper section 4.1 states 46 training / 8 validation / 8 testing scenes. This is a literature statement, not what the downloaded current metadata count shows.",
+    "nominal_overlap": "3DMatch >30%; 3DLoMatch 10-30%. Benchmark membership is fixed by author-provided pair lists. Actual overlap columns differ between implementations and do not always obey the nominal intervals.",
+    "original_3dmatch_paper": "https://arxiv.org/pdf/1603.08182",
+    "geotransformer_paper_url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Qin_Geometric_Transformer_for_Fast_and_Robust_Point_Cloud_Registration_CVPR_2022_paper.pdf",
+    "predator_paper_url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Huang_Predator_Registration_of_3D_Point_Clouds_With_Low_Overlap_CVPR_2021_paper.pdf"
+  },
+  "geotransformer_metadata_measured": {
+    "train": {
+      "pairs": 20642,
+      "metadata_sequence_names": 75,
+      "original_scene_archives_matched_by_name_prefix": 48,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-chess": 1475,
+        "7-scenes-fire": 1528,
+        "7-scenes-office": 789,
+        "7-scenes-pumpkin": 1219,
+        "7-scenes-stairs": 183,
+        "analysis-by-synthesis-apt1-kitchen": 94,
+        "analysis-by-synthesis-apt1-living": 219,
+        "analysis-by-synthesis-apt2-bed": 113,
+        "analysis-by-synthesis-apt2-kitchen": 75,
+        "analysis-by-synthesis-apt2-living": 86,
+        "analysis-by-synthesis-apt2-luke": 236,
+        "analysis-by-synthesis-office2-5a": 115,
+        "analysis-by-synthesis-office2-5b": 205,
+        "bundlefusion-apt0_1": 313,
+        "bundlefusion-apt0_2": 238,
+        "bundlefusion-apt0_3": 257,
+        "bundlefusion-apt0_4": 119,
+        "bundlefusion-apt1_1": 346,
+        "bundlefusion-apt1_2": 347,
+        "bundlefusion-apt1_3": 288,
+        "bundlefusion-apt1_4": 148,
+        "bundlefusion-apt2_1": 265,
+        "bundlefusion-apt2_2": 112,
+        "bundlefusion-copyroom_1": 282,
+        "bundlefusion-copyroom_2": 272,
+        "bundlefusion-office1_1": 351,
+        "bundlefusion-office1_2": 471,
+        "bundlefusion-office2": 454,
+        "bundlefusion-office3": 603,
+        "rgbd-scenes-v2-scene_01": 125,
+        "rgbd-scenes-v2-scene_02": 84,
+        "rgbd-scenes-v2-scene_03": 134,
+        "rgbd-scenes-v2-scene_04": 129,
+        "rgbd-scenes-v2-scene_05": 207,
+        "rgbd-scenes-v2-scene_06": 185,
+        "rgbd-scenes-v2-scene_07": 145,
+        "rgbd-scenes-v2-scene_08": 135,
+        "rgbd-scenes-v2-scene_09": 59,
+        "rgbd-scenes-v2-scene_11": 41,
+        "rgbd-scenes-v2-scene_12": 61,
+        "rgbd-scenes-v2-scene_13": 35,
+        "rgbd-scenes-v2-scene_14": 76,
+        "sun3d-brown_bm_1-brown_bm_1_1": 132,
+        "sun3d-brown_bm_1-brown_bm_1_2": 107,
+        "sun3d-brown_bm_1-brown_bm_1_3": 56,
+        "sun3d-brown_cogsci_1-brown_cogsci_1": 136,
+        "sun3d-brown_cs_2-brown_cs2_1": 157,
+        "sun3d-brown_cs_2-brown_cs2_2": 99,
+        "sun3d-brown_cs_3-brown_cs3": 133,
+        "sun3d-harvard_c3-hv_c3_1": 144,
+        "sun3d-harvard_c5-hv_c5_1": 450,
+        "sun3d-harvard_c6-hv_c6_1": 206,
+        "sun3d-harvard_c8-hv_c8_3": 46,
+        "sun3d-hotel_nips2012-nips_4_1": 414,
+        "sun3d-hotel_nips2012-nips_4_2": 332,
+        "sun3d-hotel_sf-scan1_1": 409,
+        "sun3d-hotel_sf-scan1_2": 344,
+        "sun3d-hotel_sf-scan1_3": 374,
+        "sun3d-hotel_sf-scan1_4": 245,
+        "sun3d-mit_32_d507-d507_2_1": 408,
+        "sun3d-mit_32_d507-d507_2_2": 394,
+        "sun3d-mit_46_ted_lab1-ted_lab_2_1": 191,
+        "sun3d-mit_46_ted_lab1-ted_lab_2_2": 319,
+        "sun3d-mit_46_ted_lab1-ted_lab_2_3": 142,
+        "sun3d-mit_46_ted_lab1-ted_lab_2_4": 297,
+        "sun3d-mit_76_417-76-417b_1": 166,
+        "sun3d-mit_76_417-76-417b_2_1": 221,
+        "sun3d-mit_76_417-76-417b_3": 188,
+        "sun3d-mit_76_417-76-417b_4": 113,
+        "sun3d-mit_76_417-76-417b_5": 120,
+        "sun3d-mit_dorm_next_sj-dorm_next_sj_oct_30_2012_scan1_erika": 480,
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_1": 335,
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_2": 338,
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_3": 277,
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_4": 250
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-chess": "7-scenes-chess",
+        "7-scenes-fire": "7-scenes-fire",
+        "7-scenes-office": "7-scenes-office",
+        "7-scenes-pumpkin": "7-scenes-pumpkin",
+        "7-scenes-stairs": "7-scenes-stairs",
+        "analysis-by-synthesis-apt1-kitchen": "analysis-by-synthesis-apt1-kitchen",
+        "analysis-by-synthesis-apt1-living": "analysis-by-synthesis-apt1-living",
+        "analysis-by-synthesis-apt2-bed": "analysis-by-synthesis-apt2-bed",
+        "analysis-by-synthesis-apt2-kitchen": "analysis-by-synthesis-apt2-kitchen",
+        "analysis-by-synthesis-apt2-living": "analysis-by-synthesis-apt2-living",
+        "analysis-by-synthesis-apt2-luke": "analysis-by-synthesis-apt2-luke",
+        "analysis-by-synthesis-office2-5a": "analysis-by-synthesis-office2-5a",
+        "analysis-by-synthesis-office2-5b": "analysis-by-synthesis-office2-5b",
+        "bundlefusion-apt0_1": "bundlefusion-apt0",
+        "bundlefusion-apt0_2": "bundlefusion-apt0",
+        "bundlefusion-apt0_3": "bundlefusion-apt0",
+        "bundlefusion-apt0_4": "bundlefusion-apt0",
+        "bundlefusion-apt1_1": "bundlefusion-apt1",
+        "bundlefusion-apt1_2": "bundlefusion-apt1",
+        "bundlefusion-apt1_3": "bundlefusion-apt1",
+        "bundlefusion-apt1_4": "bundlefusion-apt1",
+        "bundlefusion-apt2_1": "bundlefusion-apt2",
+        "bundlefusion-apt2_2": "bundlefusion-apt2",
+        "bundlefusion-copyroom_1": "bundlefusion-copyroom",
+        "bundlefusion-copyroom_2": "bundlefusion-copyroom",
+        "bundlefusion-office1_1": "bundlefusion-office1",
+        "bundlefusion-office1_2": "bundlefusion-office1",
+        "bundlefusion-office2": "bundlefusion-office2",
+        "bundlefusion-office3": "bundlefusion-office3",
+        "rgbd-scenes-v2-scene_01": "rgbd-scenes-v2-scene_01",
+        "rgbd-scenes-v2-scene_02": "rgbd-scenes-v2-scene_02",
+        "rgbd-scenes-v2-scene_03": "rgbd-scenes-v2-scene_03",
+        "rgbd-scenes-v2-scene_04": "rgbd-scenes-v2-scene_04",
+        "rgbd-scenes-v2-scene_05": "rgbd-scenes-v2-scene_05",
+        "rgbd-scenes-v2-scene_06": "rgbd-scenes-v2-scene_06",
+        "rgbd-scenes-v2-scene_07": "rgbd-scenes-v2-scene_07",
+        "rgbd-scenes-v2-scene_08": "rgbd-scenes-v2-scene_08",
+        "rgbd-scenes-v2-scene_09": "rgbd-scenes-v2-scene_09",
+        "rgbd-scenes-v2-scene_11": "rgbd-scenes-v2-scene_11",
+        "rgbd-scenes-v2-scene_12": "rgbd-scenes-v2-scene_12",
+        "rgbd-scenes-v2-scene_13": "rgbd-scenes-v2-scene_13",
+        "rgbd-scenes-v2-scene_14": "rgbd-scenes-v2-scene_14",
+        "sun3d-brown_bm_1-brown_bm_1_1": "sun3d-brown_bm_1-brown_bm_1",
+        "sun3d-brown_bm_1-brown_bm_1_2": "sun3d-brown_bm_1-brown_bm_1",
+        "sun3d-brown_bm_1-brown_bm_1_3": "sun3d-brown_bm_1-brown_bm_1",
+        "sun3d-brown_cogsci_1-brown_cogsci_1": "sun3d-brown_cogsci_1-brown_cogsci_1",
+        "sun3d-brown_cs_2-brown_cs2_1": "sun3d-brown_cs_2-brown_cs2",
+        "sun3d-brown_cs_2-brown_cs2_2": "sun3d-brown_cs_2-brown_cs2",
+        "sun3d-brown_cs_3-brown_cs3": "sun3d-brown_cs_3-brown_cs3",
+        "sun3d-harvard_c3-hv_c3_1": "sun3d-harvard_c3-hv_c3_1",
+        "sun3d-harvard_c5-hv_c5_1": "sun3d-harvard_c5-hv_c5_1",
+        "sun3d-harvard_c6-hv_c6_1": "sun3d-harvard_c6-hv_c6_1",
+        "sun3d-harvard_c8-hv_c8_3": "sun3d-harvard_c8-hv_c8_3",
+        "sun3d-hotel_nips2012-nips_4_1": "sun3d-hotel_nips2012-nips_4",
+        "sun3d-hotel_nips2012-nips_4_2": "sun3d-hotel_nips2012-nips_4",
+        "sun3d-hotel_sf-scan1_1": "sun3d-hotel_sf-scan1",
+        "sun3d-hotel_sf-scan1_2": "sun3d-hotel_sf-scan1",
+        "sun3d-hotel_sf-scan1_3": "sun3d-hotel_sf-scan1",
+        "sun3d-hotel_sf-scan1_4": "sun3d-hotel_sf-scan1",
+        "sun3d-mit_32_d507-d507_2_1": "sun3d-mit_32_d507-d507_2",
+        "sun3d-mit_32_d507-d507_2_2": "sun3d-mit_32_d507-d507_2",
+        "sun3d-mit_46_ted_lab1-ted_lab_2_1": "sun3d-mit_46_ted_lab1-ted_lab_2",
+        "sun3d-mit_46_ted_lab1-ted_lab_2_2": "sun3d-mit_46_ted_lab1-ted_lab_2",
+        "sun3d-mit_46_ted_lab1-ted_lab_2_3": "sun3d-mit_46_ted_lab1-ted_lab_2",
+        "sun3d-mit_46_ted_lab1-ted_lab_2_4": "sun3d-mit_46_ted_lab1-ted_lab_2",
+        "sun3d-mit_76_417-76-417b_1": "sun3d-mit_76_417-76-417b",
+        "sun3d-mit_76_417-76-417b_2_1": "sun3d-mit_76_417-76-417b",
+        "sun3d-mit_76_417-76-417b_3": "sun3d-mit_76_417-76-417b",
+        "sun3d-mit_76_417-76-417b_4": "sun3d-mit_76_417-76-417b",
+        "sun3d-mit_76_417-76-417b_5": "sun3d-mit_76_417-76-417b",
+        "sun3d-mit_dorm_next_sj-dorm_next_sj_oct_30_2012_scan1_erika": "sun3d-mit_dorm_next_sj-dorm_next_sj_oct_30_2012_scan1_erika",
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_1": "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika",
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_2": "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika",
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_3": "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika",
+        "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika_4": "sun3d-mit_w20_athena-sc_athena_oct_29_2012_scan1_erika"
+      },
+      "unique_fragment_paths": 2990,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.0005613547360964461,
+          0.26571425526701076,
+          0.42146072471070295,
+          0.6012247886016706,
+          0.998486087667705
+        ],
+        "mean": 0.4441668048734103,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          104,
+          2637,
+          3588,
+          3330,
+          3085,
+          2699,
+          2257,
+          1677,
+          913,
+          352
+        ],
+        "below_0_1": 104,
+        "below_0_3": 6329,
+        "above_0_3": 14313,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    },
+    "val": {
+      "pairs": 1331,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 6,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-heads": 466,
+        "analysis-by-synthesis-apt2-kitchen": 75,
+        "bundlefusion-office0_1": 187,
+        "bundlefusion-office0_2": 165,
+        "bundlefusion-office0_3": 218,
+        "rgbd-scenes-v2-scene_10": 66,
+        "sun3d-brown_bm_4-brown_bm_4": 103,
+        "sun3d-harvard_c11-hv_c11_2": 51
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-heads": "7-scenes-heads",
+        "analysis-by-synthesis-apt2-kitchen": "analysis-by-synthesis-apt2-kitchen",
+        "bundlefusion-office0_1": "bundlefusion-office0",
+        "bundlefusion-office0_2": "bundlefusion-office0",
+        "bundlefusion-office0_3": "bundlefusion-office0",
+        "rgbd-scenes-v2-scene_10": "rgbd-scenes-v2-scene_10",
+        "sun3d-brown_bm_4-brown_bm_4": "sun3d-brown_bm_4-brown_bm_4",
+        "sun3d-harvard_c11-hv_c11_2": "sun3d-harvard_c11-hv_c11_2"
+      },
+      "unique_fragment_paths": 273,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.09567870574043852,
+          0.2638400078905966,
+          0.4189155328372046,
+          0.6006918966017927,
+          0.9870564009306555
+        ],
+        "mean": 0.44421248023462945,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          2,
+          196,
+          218,
+          208,
+          182,
+          191,
+          135,
+          122,
+          46,
+          31
+        ],
+        "below_0_1": 2,
+        "below_0_3": 416,
+        "above_0_3": 915,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    },
+    "3DMatch": {
+      "pairs": 1623,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 8,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-redkitchen": 506,
+        "sun3d-home_at-home_at_scan1_2013_jan_1": 156,
+        "sun3d-home_md-home_md_scan9_2012_sep_30": 208,
+        "sun3d-hotel_uc-scan3": 226,
+        "sun3d-hotel_umd-maryland_hotel1": 104,
+        "sun3d-hotel_umd-maryland_hotel3": 54,
+        "sun3d-mit_76_studyroom-76-1studyroom2": 292,
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": 77
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-redkitchen": "7-scenes-redkitchen",
+        "sun3d-home_at-home_at_scan1_2013_jan_1": "sun3d-home_at-home_at_scan1_2013_jan_1",
+        "sun3d-home_md-home_md_scan9_2012_sep_30": "sun3d-home_md-home_md_scan9_2012_sep_30",
+        "sun3d-hotel_uc-scan3": "sun3d-hotel_uc-scan3",
+        "sun3d-hotel_umd-maryland_hotel1": "sun3d-hotel_umd-maryland_hotel1",
+        "sun3d-hotel_umd-maryland_hotel3": "sun3d-hotel_umd-maryland_hotel3",
+        "sun3d-mit_76_studyroom-76-1studyroom2": "sun3d-mit_76_studyroom-76-1studyroom2",
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika"
+      },
+      "unique_fragment_paths": 427,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.13654321313901405,
+          0.38205217834996874,
+          0.4749514155155208,
+          0.606381073370221,
+          0.9614052892364635
+        ],
+        "mean": 0.4995376972619585,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          0,
+          3,
+          100,
+          380,
+          416,
+          307,
+          222,
+          130,
+          57,
+          8
+        ],
+        "below_0_1": 0,
+        "below_0_3": 103,
+        "above_0_3": 1520,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    },
+    "3DLoMatch": {
+      "pairs": 1781,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 8,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-redkitchen": 525,
+        "sun3d-home_at-home_at_scan1_2013_jan_1": 289,
+        "sun3d-home_md-home_md_scan9_2012_sep_30": 230,
+        "sun3d-hotel_uc-scan3": 218,
+        "sun3d-hotel_umd-maryland_hotel1": 158,
+        "sun3d-hotel_umd-maryland_hotel3": 49,
+        "sun3d-mit_76_studyroom-76-1studyroom2": 240,
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": 72
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-redkitchen": "7-scenes-redkitchen",
+        "sun3d-home_at-home_at_scan1_2013_jan_1": "sun3d-home_at-home_at_scan1_2013_jan_1",
+        "sun3d-home_md-home_md_scan9_2012_sep_30": "sun3d-home_md-home_md_scan9_2012_sep_30",
+        "sun3d-hotel_uc-scan3": "sun3d-hotel_uc-scan3",
+        "sun3d-hotel_umd-maryland_hotel1": "sun3d-hotel_umd-maryland_hotel1",
+        "sun3d-hotel_umd-maryland_hotel3": "sun3d-hotel_umd-maryland_hotel3",
+        "sun3d-mit_76_studyroom-76-1studyroom2": "sun3d-mit_76_studyroom-76-1studyroom2",
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika"
+      },
+      "unique_fragment_paths": 429,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.09855006120194652,
+          0.1399122306487255,
+          0.18428323334385854,
+          0.23643866102061634,
+          0.3048751047302575
+        ],
+        "mean": 0.18912042463450313,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          4,
+          1040,
+          732,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "below_0_1": 4,
+        "below_0_3": 1776,
+        "above_0_3": 5,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    }
+  },
+  "predator_metadata_measured": {
+    "val_info": {
+      "pairs": 1331,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 6,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-heads": 466,
+        "analysis-by-synthesis-apt2-kitchen": 75,
+        "bundlefusion-office0_1": 187,
+        "bundlefusion-office0_2": 165,
+        "bundlefusion-office0_3": 218,
+        "rgbd-scenes-v2-scene_10": 66,
+        "sun3d-brown_bm_4-brown_bm_4": 103,
+        "sun3d-harvard_c11-hv_c11_2": 51
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-heads": "7-scenes-heads",
+        "analysis-by-synthesis-apt2-kitchen": "analysis-by-synthesis-apt2-kitchen",
+        "bundlefusion-office0_1": "bundlefusion-office0",
+        "bundlefusion-office0_2": "bundlefusion-office0",
+        "bundlefusion-office0_3": "bundlefusion-office0",
+        "rgbd-scenes-v2-scene_10": "rgbd-scenes-v2-scene_10",
+        "sun3d-brown_bm_4-brown_bm_4": "sun3d-brown_bm_4-brown_bm_4",
+        "sun3d-harvard_c11-hv_c11_2": "sun3d-harvard_c11-hv_c11_2"
+      },
+      "unique_fragment_paths": 273,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.10032551539938235,
+          0.1778340955493739,
+          0.3041035023523262,
+          0.4445249532987121,
+          0.8916055419722901
+        ],
+        "mean": 0.3288962670174742,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          0,
+          397,
+          256,
+          254,
+          167,
+          150,
+          71,
+          30,
+          6,
+          0
+        ],
+        "below_0_1": 0,
+        "below_0_3": 653,
+        "above_0_3": 678,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    },
+    "3DMatch": {
+      "pairs": 1623,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 8,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-redkitchen": 506,
+        "sun3d-home_at-home_at_scan1_2013_jan_1": 156,
+        "sun3d-home_md-home_md_scan9_2012_sep_30": 208,
+        "sun3d-hotel_uc-scan3": 226,
+        "sun3d-hotel_umd-maryland_hotel1": 104,
+        "sun3d-hotel_umd-maryland_hotel3": 54,
+        "sun3d-mit_76_studyroom-76-1studyroom2": 292,
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": 77
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-redkitchen": "7-scenes-redkitchen",
+        "sun3d-home_at-home_at_scan1_2013_jan_1": "sun3d-home_at-home_at_scan1_2013_jan_1",
+        "sun3d-home_md-home_md_scan9_2012_sep_30": "sun3d-home_md-home_md_scan9_2012_sep_30",
+        "sun3d-hotel_uc-scan3": "sun3d-hotel_uc-scan3",
+        "sun3d-hotel_umd-maryland_hotel1": "sun3d-hotel_umd-maryland_hotel1",
+        "sun3d-hotel_umd-maryland_hotel3": "sun3d-hotel_umd-maryland_hotel3",
+        "sun3d-mit_76_studyroom-76-1studyroom2": "sun3d-mit_76_studyroom-76-1studyroom2",
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika"
+      },
+      "unique_fragment_paths": 427,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.02794015123076098,
+          0.22385863477521012,
+          0.29643053267435476,
+          0.4041906394753151,
+          0.8348517475567335
+        ],
+        "mean": 0.321524007019736,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          50,
+          249,
+          530,
+          377,
+          229,
+          112,
+          55,
+          19,
+          2,
+          0
+        ],
+        "below_0_1": 50,
+        "below_0_3": 829,
+        "above_0_3": 794,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    },
+    "3DLoMatch": {
+      "pairs": 1781,
+      "metadata_sequence_names": 8,
+      "original_scene_archives_matched_by_name_prefix": 8,
+      "mapping_method": "Exact original archive name, otherwise longest original archive prefix plus underscore. This is a name-based mapping, not a point-cloud identity test.",
+      "unmapped_sequences": [],
+      "pairs_by_sequence": {
+        "7-scenes-redkitchen": 525,
+        "sun3d-home_at-home_at_scan1_2013_jan_1": 289,
+        "sun3d-home_md-home_md_scan9_2012_sep_30": 230,
+        "sun3d-hotel_uc-scan3": 218,
+        "sun3d-hotel_umd-maryland_hotel1": 158,
+        "sun3d-hotel_umd-maryland_hotel3": 49,
+        "sun3d-mit_76_studyroom-76-1studyroom2": 240,
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": 72
+      },
+      "sequence_to_original_scene": {
+        "7-scenes-redkitchen": "7-scenes-redkitchen",
+        "sun3d-home_at-home_at_scan1_2013_jan_1": "sun3d-home_at-home_at_scan1_2013_jan_1",
+        "sun3d-home_md-home_md_scan9_2012_sep_30": "sun3d-home_md-home_md_scan9_2012_sep_30",
+        "sun3d-hotel_uc-scan3": "sun3d-hotel_uc-scan3",
+        "sun3d-hotel_umd-maryland_hotel1": "sun3d-hotel_umd-maryland_hotel1",
+        "sun3d-hotel_umd-maryland_hotel3": "sun3d-hotel_umd-maryland_hotel3",
+        "sun3d-mit_76_studyroom-76-1studyroom2": "sun3d-mit_76_studyroom-76-1studyroom2",
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika"
+      },
+      "unique_fragment_paths": 429,
+      "overlap_column": {
+        "min_q25_median_q75_max": [
+          0.1001,
+          0.1401,
+          0.1848,
+          0.2361,
+          0.2997
+        ],
+        "mean": 0.1895559797866367,
+        "bins_left_inclusive_right_exclusive_except_last": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.000001
+        ],
+        "bin_counts": [
+          0,
+          1037,
+          744,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "below_0_1": 0,
+        "below_0_3": 1781,
+        "above_0_3": 0,
+        "interpretation": "Values of this particular metadata field; do not equate to physical occlusion fraction or independently measured geometric overlap."
+      }
+    }
+  },
+  "cross_implementation_comparison": {
+    "val": {
+      "same_ordered_pairs": true,
+      "identical_rotation_translation": true,
+      "overlap_columns_identical": false
+    },
+    "3DMatch": {
+      "same_ordered_pairs": true,
+      "identical_rotation_translation": true,
+      "overlap_columns_identical": false
+    },
+    "3DLoMatch": {
+      "same_ordered_pairs": true,
+      "identical_rotation_translation": true,
+      "overlap_columns_identical": false
+    }
+  },
+  "split_checks": {
+    "train_vs_val": {
+      "shared_sequence_names": [
+        "analysis-by-synthesis-apt2-kitchen"
+      ],
+      "shared_directed_pair_paths": 75,
+      "shared_fragment_paths": 19,
+      "shared_pair_ground_truth_identical": true,
+      "shared_pairs": [
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_0.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_4.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_11.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_11.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_11.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_4.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_11.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_12.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_0.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_12.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_12.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_0.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_12.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_11.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_4.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_0.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_12.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_13.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_16.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_10.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_14.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_15.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_17.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_18.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_4.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_4.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_7.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_0.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_1.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_8.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_2.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_3.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_5.pth"
+        ],
+        [
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_9.pth",
+          "train/analysis-by-synthesis-apt2-kitchen/cloud_bin_6.pth"
+        ]
+      ]
+    },
+    "train_vs_test": {
+      "shared_sequence_names": [],
+      "shared_directed_pair_paths": 0,
+      "shared_fragment_paths": 0,
+      "shared_pair_ground_truth_identical": null,
+      "shared_pairs": []
+    },
+    "val_vs_test": {
+      "shared_sequence_names": [],
+      "shared_directed_pair_paths": 0,
+      "shared_fragment_paths": 0,
+      "shared_pair_ground_truth_identical": null,
+      "shared_pairs": []
+    },
+    "match_vs_lomatch": {
+      "shared_sequence_names": [
+        "7-scenes-redkitchen",
+        "sun3d-home_at-home_at_scan1_2013_jan_1",
+        "sun3d-home_md-home_md_scan9_2012_sep_30",
+        "sun3d-hotel_uc-scan3",
+        "sun3d-hotel_umd-maryland_hotel1",
+        "sun3d-hotel_umd-maryland_hotel3",
+        "sun3d-mit_76_studyroom-76-1studyroom2",
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika"
+      ],
+      "shared_directed_pair_paths": 100,
+      "shared_fragment_paths": 424,
+      "shared_pair_ground_truth_identical": true,
+      "shared_pairs": [
+        [
+          "test/7-scenes-redkitchen/cloud_bin_0.pth",
+          "test/7-scenes-redkitchen/cloud_bin_31.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_0.pth",
+          "test/7-scenes-redkitchen/cloud_bin_32.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_0.pth",
+          "test/7-scenes-redkitchen/cloud_bin_37.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_0.pth",
+          "test/7-scenes-redkitchen/cloud_bin_38.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_0.pth",
+          "test/7-scenes-redkitchen/cloud_bin_41.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_1.pth",
+          "test/7-scenes-redkitchen/cloud_bin_41.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_10.pth",
+          "test/7-scenes-redkitchen/cloud_bin_41.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_11.pth",
+          "test/7-scenes-redkitchen/cloud_bin_20.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_11.pth",
+          "test/7-scenes-redkitchen/cloud_bin_41.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_13.pth",
+          "test/7-scenes-redkitchen/cloud_bin_30.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_15.pth",
+          "test/7-scenes-redkitchen/cloud_bin_21.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_18.pth",
+          "test/7-scenes-redkitchen/cloud_bin_22.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_2.pth",
+          "test/7-scenes-redkitchen/cloud_bin_26.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_24.pth",
+          "test/7-scenes-redkitchen/cloud_bin_39.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_4.pth",
+          "test/7-scenes-redkitchen/cloud_bin_20.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_4.pth",
+          "test/7-scenes-redkitchen/cloud_bin_41.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_49.pth",
+          "test/7-scenes-redkitchen/cloud_bin_59.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_5.pth",
+          "test/7-scenes-redkitchen/cloud_bin_21.pth"
+        ],
+        [
+          "test/7-scenes-redkitchen/cloud_bin_53.pth",
+          "test/7-scenes-redkitchen/cloud_bin_56.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_1.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_37.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_1.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_38.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_1.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_2.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_37.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_41.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_43.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_41.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_44.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_41.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_46.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_48.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_48.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_9.pth",
+          "test/sun3d-home_at-home_at_scan1_2013_jan_1/cloud_bin_29.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_10.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_32.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_10.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_33.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_10.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_35.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_10.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_36.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_11.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_32.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_11.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_33.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_15.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_57.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_16.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_58.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_2.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_3.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_20.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_23.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_3.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_4.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_41.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_4.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_47.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_47.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_5.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_9.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_32.pth"
+        ],
+        [
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_9.pth",
+          "test/sun3d-home_md-home_md_scan9_2012_sep_30/cloud_bin_33.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_0.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_43.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_1.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_11.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_1.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_43.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_13.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_47.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_13.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_51.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_15.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_19.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_35.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_2.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_43.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_23.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_24.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_50.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_29.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_30.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_31.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_53.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_32.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_53.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_4.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_10.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_4.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_19.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_48.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_53.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_8.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_36.pth"
+        ],
+        [
+          "test/sun3d-hotel_uc-scan3/cloud_bin_9.pth",
+          "test/sun3d-hotel_uc-scan3/cloud_bin_20.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_10.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_29.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_14.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_15.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_2.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_23.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_25.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_29.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_7.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_8.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_9.pth",
+          "test/sun3d-hotel_umd-maryland_hotel1/cloud_bin_25.pth"
+        ],
+        [
+          "test/sun3d-hotel_umd-maryland_hotel3/cloud_bin_8.pth",
+          "test/sun3d-hotel_umd-maryland_hotel3/cloud_bin_16.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_0.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_12.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_52.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_14.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_18.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_16.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_61.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_21.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_65.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_27.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_31.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_30.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_32.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_33.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_65.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_34.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_36.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_34.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_37.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_34.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_64.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_36.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_52.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_39.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_48.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_39.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_49.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_4.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_40.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_45.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_40.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_46.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_40.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_47.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_44.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_48.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_58.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_62.pth"
+        ],
+        [
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_63.pth",
+          "test/sun3d-mit_76_studyroom-76-1studyroom2/cloud_bin_65.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_0.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_11.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_0.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_6.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_19.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_21.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_3.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_5.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_3.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_6.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_31.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_35.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_4.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_7.pth"
+        ],
+        [
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_9.pth",
+          "test/sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika/cloud_bin_11.pth"
+        ]
+      ]
+    },
+    "interpretation": "Current GeoTransformer metadata share 75 train/val pair paths in analysis-by-synthesis-apt2-kitchen, with identical R/t. This is an artifact audit, not evidence about the authors' historical training run. Its example loader applies no overlap filter by default. Before training, use a documented scene-disjoint validation split; removing this sequence from train would remove 75 rows.",
+    "predator_train_not_downloaded": "HEAD size 4,522,214 bytes; not downloaded to respect the 10 MB total metadata cap. PREDATOR validation/test pair paths and R/t match GeoTransformer exactly."
+  },
+  "ground_truth": {
+    "transform_convention": "Source cloud pcd1 to reference cloud pcd0: x_ref = R x_src + t, units meters.",
+    "construction": "Original benchmark reads fragment camera-to-world transforms and forms inverse(T_world_from_ref) @ T_world_from_src. These originate in registered RGB-D reconstructions. Ground-truth correspondences and the gt.info matrix are then derived from aligned overlapping surfaces.",
+    "source": "https://github.com/andyzeng/3dmatch-toolbox/blob/master/evaluation/geometric-registration/getGtInfoLog.m",
+    "limits": "Reconstruction-derived reference poses are not exact external metrology. Sensor noise, imperfect reconstruction, fusion and sampling remain. This audit cannot measure the error of GT or physical occlusion ratios without the scans and independent references."
+  },
+  "evaluation": {
+    "main": "Use the existing 3DMatch/3DLoMatch benchmark evaluator for registration recall (RR), with its gt.log/gt.info transform error and RMSE threshold 0.2 m. Average per scene as the reference script does.",
+    "supporting": "RRE and RTE; correspondence IR with 0.1 m distance threshold; FMR with 5% inlier threshold. Explicitly state whether RRE/RTE summarize all pairs or only accepted pairs; GeoTransformer eval.py reports them only for accepted registrations.",
+    "source": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py",
+    "warning": "Do not substitute nearest-neighbor Chamfer distance or custom RRE/RTE thresholds while calling the result official RR."
+  },
+  "storage_checked_without_download": {
+    "predator_preprocessed_data_zip_bytes_head": 936097584,
+    "predator_preprocessed_url": "https://share.phys.ethz.ch/~gseg/Predator/data.zip",
+    "predator_dense_3dmatch_zip_bytes_head": 5172589610,
+    "predator_dense_url": "https://share.phys.ethz.ch/~gsg/pairwise_reg/3dmatch.zip",
+    "official_test_archives_website_advertised_MB": {
+      "redkitchen": 40,
+      "home_at": 44,
+      "home_md": 36,
+      "hotel_uc": 55,
+      "hotel_umd_1": 51,
+      "hotel_umd_3": 33,
+      "studyroom": 82,
+      "lab": 42
+    },
+    "official_test_archives_advertised_total_MB": 383,
+    "official_evaluation_archives_advertised_MB_each": 1,
+    "size_limit": "Archive byte counts are HTTP Content-Length, while website MB sizes are advertised rounded values. Extracted size not measured.",
+    "small_demo_head_bytes": {
+      "data/demo/src.npy": 383000,
+      "data/demo/ref.npy": 455576,
+      "data/demo/gt.npy": 256
+    },
+    "demo_url": "https://github.com/qinzheng93/GeoTransformer/tree/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/demo"
+  },
+  "unknowns": [
+    "Actual per-fragment point count distribution (point clouds not downloaded)",
+    "Physical occlusion ratio and sensor noise distributions",
+    "Historical paper train/validation split beyond its written protocol",
+    "Precise cause of overlap-field differences between implementations",
+    "Model accuracy, runtime, and GPU memory on this environment (not run)",
+    "Compatibility of old CUDA/PyTorch implementations with H100 cluster (not tested)"
+  ]
+}

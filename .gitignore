@@ -1,0 +1,19 @@
+# Course materials and unrelated historical research
+/Lecture*.pptx
+/proposals/v2/assets/a/
+/proposals/research/graspnet_audit.json
+/proposals/dataset_audit_zh.txt
+
+# Temporary visual checks and superseded slide snapshots
+/proposals/examples/pdf_check_*
+/proposals/v2/slides_before_examples.json
+**/view_candidates.*
+
+# Local caches, environments, credentials, and Office lock files
+__pycache__/
+*.py[cod]
+.venv/
+.pixi/
+.env
+.env.*
+~$*

@@ -1,0 +1,28 @@
+{
+  "high_3dmatch": {
+    "source_points": 16341,
+    "reference_points": 18977,
+    "display_mask_threshold_m": 0.05,
+    "display_mask_source_fraction": 0.7376537543601983,
+    "display_mask_reference_fraction": 0.6441481793750329,
+    "display_mask_is_benchmark_overlap": false
+  },
+  "low_3dlomatch": {
+    "source_points": 11054,
+    "reference_points": 18977,
+    "display_mask_threshold_m": 0.05,
+    "display_mask_source_fraction": 0.4238284783788674,
+    "display_mask_reference_fraction": 0.21557675080360436,
+    "display_mask_is_benchmark_overlap": false
+  },
+  "azimuth_deg": -90.0,
+  "elevation_deg": 27.0,
+  "shared_metric_scale": true,
+  "shared_reference_camera": true,
+  "shared_gt_camera": true,
+  "input_panels_centered_for_display": true,
+  "all_points_rendered": true,
+  "model_run": false,
+  "point_color": "illustrative, not RGB input or a prediction",
+  "transform": "aligned = src @ gt[:3,:3].T + gt[:3,3]"
+}

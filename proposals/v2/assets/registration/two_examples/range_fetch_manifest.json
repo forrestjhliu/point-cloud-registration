@@ -1,0 +1,91 @@
+{
+  "url": "https://share.phys.ethz.ch/~gseg/Predator/data.zip",
+  "archive_content_length": 936097584,
+  "downloaded_range_bytes": 1370160,
+  "ranges": [
+    {
+      "start": 936032027,
+      "end": 936097583,
+      "bytes": 65557,
+      "content_range": "bytes 936032027-936097583/936097584"
+    },
+    {
+      "start": 935032297,
+      "end": 936097561,
+      "bytes": 1065265,
+      "content_range": "bytes 935032297-936097561/936097584"
+    },
+    {
+      "start": 456649776,
+      "end": 456649805,
+      "bytes": 30,
+      "content_range": "bytes 456649776-456649805/936097584"
+    },
+    {
+      "start": 456649890,
+      "end": 456747669,
+      "bytes": 97780,
+      "content_range": "bytes 456649890-456747669/936097584"
+    },
+    {
+      "start": 457028644,
+      "end": 457028673,
+      "bytes": 30,
+      "content_range": "bytes 457028644-457028673/936097584"
+    },
+    {
+      "start": 457028759,
+      "end": 457111542,
+      "bytes": 82784,
+      "content_range": "bytes 457028759-457111542/936097584"
+    },
+    {
+      "start": 458917069,
+      "end": 458917098,
+      "bytes": 30,
+      "content_range": "bytes 458917069-458917098/936097584"
+    },
+    {
+      "start": 458917184,
+      "end": 458975867,
+      "bytes": 58684,
+      "content_range": "bytes 458917184-458975867/936097584"
+    }
+  ],
+  "members": [
+    {
+      "name": "data/indoor/test/7-scenes-redkitchen/cloud_bin_0.pth",
+      "flags": 8,
+      "method": 8,
+      "crc32": 1455977340,
+      "compressed_bytes": 97780,
+      "uncompressed_bytes": 601565,
+      "local_offset": 456649776,
+      "saved_file": "cloud_bin_0.pth",
+      "sha256": "eb84b582d7838840d63b18c8fee34549dc5b243afc5f5dfb3b5c02904c24b8f5"
+    },
+    {
+      "name": "data/indoor/test/7-scenes-redkitchen/cloud_bin_12.pth",
+      "flags": 8,
+      "method": 8,
+      "crc32": 2851983113,
+      "compressed_bytes": 82784,
+      "uncompressed_bytes": 519548,
+      "local_offset": 457028644,
+      "saved_file": "cloud_bin_12.pth",
+      "sha256": "f98a32f97ad4c29835fa23053476c98574012ca04633a465543a1ffee30fab45"
+    },
+    {
+      "name": "data/indoor/test/7-scenes-redkitchen/cloud_bin_30.pth",
+      "flags": 8,
+      "method": 8,
+      "crc32": 507610188,
+      "compressed_bytes": 58684,
+      "uncompressed_bytes": 353941,
+      "local_offset": 458917069,
+      "saved_file": "cloud_bin_30.pth",
+      "sha256": "d4ccc66667232251464aa39b7a842c3f0d76a115b08b23e44955df17a029f18e"
+    }
+  ],
+  "full_archive_downloaded": false
+}

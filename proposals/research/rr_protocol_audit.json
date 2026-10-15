@@ -1,0 +1,127 @@
+{
+  "audited_at_utc": "2026-10-15T17:53:05.929375+00:00",
+  "scope": "Read existing fixed author metadata and apply the official non-adjacent pair predicate; no registration predictions, large downloads, package installation, or slide edits. Counts are verified from metadata, not a fresh download of every gt.log/gt.info.",
+  "geotransformer_commit": "e7a135af4c318ff3b8d7f6c963df094d7e4ea540",
+  "protocol": {
+    "eligible_pair_predicate": "frag_id1 > frag_id0 + 1",
+    "single_pair_success": "compute_transform_error(T_gt, gt_info, T_est) < 0.2**2 in standard experiment eval.py",
+    "error_description": "Normalized gt.info quadratic form of relative-pose translation and quaternion-vector components; official approximation of correspondence realignment RMSE squared. Not translation error or raw nearest-neighbor Chamfer error.",
+    "boundary_note": "The experiment eval.py uses strict <; utility evaluate_registration_one_scene uses <= at the threshold. Use one pinned official evaluator consistently.",
+    "scene_recall": "successful eligible pairs / eligible pairs in the scene, when all benchmark predictions are supplied",
+    "reported_rr": "Unweighted arithmetic mean of the eight scene recalls, not total successes divided by total pairs.",
+    "rre_rte_note": "Standard eval.py averages RRE/RTE only for accepted registrations."
+  },
+  "pinned_code_sources": {
+    "pair_filter_and_error": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/geotransformer/datasets/registration/threedmatch/utils.py#L108-L126",
+    "standard_success_check": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L173-L185",
+    "scene_aggregation": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L245-L255",
+    "overall_aggregation": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/eval.py#L300-L306",
+    "threshold": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/experiments/geotransformer.3dmatch.stage4.gse.k3.max.oacl.stage2.sinkhorn/config.py#L47-L54"
+  },
+  "benchmarks": {
+    "3DMatch": {
+      "metadata_file": "proposals\\research\\registration_metadata\\3DMatch.pkl",
+      "sha256": "390a959da36cd10abb924da366fb1a324e031913efec76a1ed4185bcfd3d7353",
+      "metadata_source": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DMatch.pkl",
+      "loaded_pairs": 1623,
+      "eligible_rr_pairs": 1279,
+      "excluded_adjacent_pairs": 344,
+      "per_scene": {
+        "7-scenes-redkitchen": {
+          "loaded_pairs": 506,
+          "eligible_rr_pairs": 449
+        },
+        "sun3d-home_at-home_at_scan1_2013_jan_1": {
+          "loaded_pairs": 156,
+          "eligible_rr_pairs": 106
+        },
+        "sun3d-home_md-home_md_scan9_2012_sep_30": {
+          "loaded_pairs": 208,
+          "eligible_rr_pairs": 159
+        },
+        "sun3d-hotel_uc-scan3": {
+          "loaded_pairs": 226,
+          "eligible_rr_pairs": 182
+        },
+        "sun3d-hotel_umd-maryland_hotel1": {
+          "loaded_pairs": 104,
+          "eligible_rr_pairs": 78
+        },
+        "sun3d-hotel_umd-maryland_hotel3": {
+          "loaded_pairs": 54,
+          "eligible_rr_pairs": 26
+        },
+        "sun3d-mit_76_studyroom-76-1studyroom2": {
+          "loaded_pairs": 292,
+          "eligible_rr_pairs": 234
+        },
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": {
+          "loaded_pairs": 77,
+          "eligible_rr_pairs": 45
+        }
+      }
+    },
+    "3DLoMatch": {
+      "metadata_file": "proposals\\research\\registration_metadata\\3DLoMatch.pkl",
+      "sha256": "10dde0aa4198b9ee636c13ef0b94a6849af73d3f1b576dd28d43934721857550",
+      "metadata_source": "https://github.com/qinzheng93/GeoTransformer/blob/e7a135af4c318ff3b8d7f6c963df094d7e4ea540/data/3DMatch/metadata/3DLoMatch.pkl",
+      "loaded_pairs": 1781,
+      "eligible_rr_pairs": 1726,
+      "excluded_adjacent_pairs": 55,
+      "per_scene": {
+        "7-scenes-redkitchen": {
+          "loaded_pairs": 525,
+          "eligible_rr_pairs": 524
+        },
+        "sun3d-home_at-home_at_scan1_2013_jan_1": {
+          "loaded_pairs": 289,
+          "eligible_rr_pairs": 283
+        },
+        "sun3d-home_md-home_md_scan9_2012_sep_30": {
+          "loaded_pairs": 230,
+          "eligible_rr_pairs": 222
+        },
+        "sun3d-hotel_uc-scan3": {
+          "loaded_pairs": 218,
+          "eligible_rr_pairs": 210
+        },
+        "sun3d-hotel_umd-maryland_hotel1": {
+          "loaded_pairs": 158,
+          "eligible_rr_pairs": 138
+        },
+        "sun3d-hotel_umd-maryland_hotel3": {
+          "loaded_pairs": 49,
+          "eligible_rr_pairs": 42
+        },
+        "sun3d-mit_76_studyroom-76-1studyroom2": {
+          "loaded_pairs": 240,
+          "eligible_rr_pairs": 237
+        },
+        "sun3d-mit_lab_hj-lab_hj_tea_nov_2_2012_scan1_erika": {
+          "loaded_pairs": 72,
+          "eligible_rr_pairs": 70
+        }
+      }
+    }
+  },
+  "teaching_examples": [
+    {
+      "benchmark": "3DMatch",
+      "scene_name": "7-scenes-redkitchen",
+      "reference_fragment": 0,
+      "source_fragment": 12,
+      "present_exactly_once": true,
+      "eligible_for_rr": true,
+      "local_gt_matches_metadata_exactly": true
+    },
+    {
+      "benchmark": "3DLoMatch",
+      "scene_name": "7-scenes-redkitchen",
+      "reference_fragment": 0,
+      "source_fragment": 30,
+      "present_exactly_once": true,
+      "eligible_for_rr": true,
+      "local_gt_matches_metadata_exactly": true
+    }
+  ]
+}

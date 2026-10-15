@@ -1,0 +1,39 @@
+低重叠点云配准：六页开题版本
+
+演示主文件：../low_overlap_registration_proposal.pptx / .pdf
+两个生成入口都自动同步上述主文件，不再生成四页示意图旧版。
+可直接插入 slides 的两张 3200×1800 PNG：
+  ../examples/3dmatch_pair_12_to_0.png
+  ../examples/3dlomatch_pair_30_to_0.png
+
+low_overlap_registration_6slides.pptx / low_overlap_registration_6slides.pdf
+  1 真实样例 1：共同表面较多，RedKitchen 片段 12 → 0
+  2 数据如何形成：RGB-D → 50帧融合 → fragment → 一条样本的输入与GT
+  3 真实样例 2：低重叠，RedKitchen 片段 30 → 同一个片段 0
+  4 数据集与分布：同8个测试场景，两份配对列表；片段可以参与多对
+  5 Ground truth 与 target：P → 世界 → Q生成GT；官方RR排除相邻片段并按场景平均
+  6 自然引出实验：固定特征和求解器，只比较对应筛选规则
+
+素材与讲稿
+  每页 PPTX 的备注区有口头讲稿、来源和关键边界；PDF 是干净的演示页。
+  第1、3页均展示两份实际输入 XYZ，以及 GT 对齐的正确答案示意。
+  两组共享同一参考点云 Q，其视角、颜色、缩放完全相同，方便现场对照。
+  重叠数值统一取 GeoTransformer 元数据：61.35% / 19.93%；不是遮挡率。
+  绿色仅在 GT 图中标出距离另一片段 <5 cm 的邻近表面，帮助理解共同区域；
+  不给模型，不是预测，其比例也不等于上述元数据字段。
+  两例展示典型情形，不构成算法性能比较或重叠度的单因素实验。
+  新样例来源、身份、GT、下载字节和 SHA256 见 assets/registration/two_examples/examples.json。
+  通过 HTTP Range 仅新增下载 1,370,160 bytes，未下载 936 MB 完整数据包或权重。
+  此前下载的 demo / 作者图仍保留，来源见 assets/registration/manifest.json。
+  尚未训练或运行模型；已有开源代码仍需要后续在实际 GPU 环境复现。
+  原始元数据审计与训练/验证重复细节仍位于 ../research/ 和 ../dataset_audit_zh.txt。
+  RR配对规模另见 ../research/rr_protocol_audit.json：加载1623/1781对，
+  排除直接相邻片段后，RR有效1279/1726对；两个教学样例均属有效样本。
+  第2、4、5页备注包含数据生成、样本字段、坐标变换、划分和评测的详细讲解。
+
+复现导出
+  在 PowerShell 中执行：.\build_six_slides.ps1
+  需要本机 Microsoft PowerPoint。图形、文字可编辑，真实数据图已内嵌。
+  verify_outputs.py 用于检查页数、备注、内嵌素材与版面溢出报告。
+  新样例渲染脚本：assets/registration/two_examples/render_examples.py
+  渲染参数：--azimuth -90 --elevation 27；使用 NumPy / SciPy / Matplotlib。

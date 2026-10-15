@@ -1,0 +1,41 @@
+3DMatch-3DLoMatch metadata audit
+
+Downloaded metadata only: 9,878,860 bytes (under 10 MB). No point clouds or models.
+
+Stable proposal facts:
+- Real indoor partial surface fragments, each fused from 50 RGB-D depth frames.
+- Task: given two unaligned metric point clouds, estimate source-to-reference R,t.
+- Eight held-out test scenes; 3DMatch 1,623 pairs; 3DLoMatch 1,781 pairs.
+- The two test benchmarks use the same eight scenes and different pair lists;
+  these current pair lists share 100 exact directed pairs and are not disjoint.
+- GT comes from reconstruction-derived fragment poses, not exact external metrology.
+- Use official RR (0.2 m benchmark transform-error threshold); report per-scene means.
+
+Actual GeoTransformer metadata audit:
+- train: 20,642 pairs / 75 sequence names / 48 original scene archive names.
+- val: 1,331 pairs / 8 sequence names / 6 original scene archive names.
+- train/val share 75 exact directed pair paths and 19 fragment paths in
+  analysis-by-synthesis-apt2-kitchen; corresponding R,t values are identical.
+- train/test and val/test have no shared scene names or fragment paths.
+- The paper's 46/8/8 description must not be presented as these artifact counts.
+- Before any training, document a scene-disjoint validation split. Removing the
+  shared sequence from training gives 20,567 training pairs / 74 sequence names.
+  This is a proposed cleanup, not a claim that it reproduces the paper's split.
+
+Overlap fields (not physical occlusion percentages):
+- GeoTransformer 3DMatch: median 47.50%, mean 49.95%; 103 pairs <30%.
+- GeoTransformer 3DLoMatch: median 18.43%, mean 18.91%; 4 pairs <10%, 5 >30%.
+- PREDATOR 3DLoMatch: median 18.48%, range 10.01%-29.97%.
+- PREDATOR 3DMatch overlap field uses different values (median 29.64%).
+- All test pair identities and GT R,t are identical across these two repositories.
+  Therefore retain official pair membership; do not silently re-filter by an
+  implementation-specific overlap column. Causes of numerical differences remain
+  unverified without preprocessing provenance / point cloud recomputation.
+
+Storage preflight (HEAD only): preprocessed archive 936,097,584 bytes;
+dense archive 5,172,589,610 bytes. Official website lists test-scene archives as
+33-82 MB each, 383 MB summed (rounded advertised sizes). GeoTransformer demo
+src/ref/GT files total 838,832 bytes; not downloaded in this audit.
+
+Full scene counts, binned overlap distribution, pinned sources, checksums,
+GT/evaluation details, and explicit unknowns are in registration_audit.json.
